@@ -7,6 +7,10 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
+# (Java)
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+
 # Load Node global installed binaries
 # export PATH="$HOME/.node/bin:$PATH"
 
@@ -18,10 +22,6 @@ export PATH=$PATH:$GOROOT/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/d3/.oh-my-zsh"
-
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-
-export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
 # Enable completions
 autoload -Uz compinit && compinit
@@ -120,8 +120,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias k=kubectl
-
 alias gs="git status"
 alias gd="git diff"
 alias gb="git branch -vv"
@@ -139,6 +137,10 @@ alias pop="git stash pop"
 alias show="git show"
 alias wip="git commit -am wip"
 alias nah="git reset --hard && git clean -df"
+
+alias k=kubectl
+alias kns="kubectl config set-context --current --namespace "
+alias kctx="kubectl config use-context "
 
 function find-pod()
 {
