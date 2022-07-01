@@ -38,3 +38,15 @@ vim.opt.sidescrolloff = 8
 vim.opt.shortmess:append "c"
 --vim.opt.whichwrap:append("<,>,[,],h,l")
 --vim.opt.iskeyword:append("-")
+vim.wo.colorcolumn = '100'
+
+vim.cmd [[
+  augroup file_type_tab_config
+    autocmd FileType make setlocal noexpandtab
+    autocmd FileType go setlocal shiftwidth=4 softtabstop=4 noexpandtab colorcolumn=120
+    autocmd FileType php setlocal shiftwidth=4 softtabstop=4 expandtab
+    autocmd FileType lua setlocal shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType yaml setlocal shiftwidth=4 softtabstop=4 expandtab
+  augroup end
+]]
+

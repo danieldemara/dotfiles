@@ -1,6 +1,7 @@
 require "options"
 require "keymap"
 require "line"
+require "autocmds"
 
 -- Autoconfigure packer as a package manager
 local fn = vim.fn
@@ -33,8 +34,11 @@ require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip'
 
   use 'arcticicestudio/nord-vim' -- Colorscheme
+
   use 'nvim-lualine/lualine.nvim'
   use 'kyazdani42/nvim-web-devicons'
+
+  use 'kyazdani42/nvim-tree.lua'
 
   if packer_bootstrap then
     require('packer').sync()
@@ -59,6 +63,9 @@ telescope.setup {
     }
   }
 }
+
+-- Tree Config
+require("nvim-tree").setup()
 
 -- LSP Config
 
