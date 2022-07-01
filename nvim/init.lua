@@ -49,6 +49,17 @@ require("nvim-treesitter.configs").setup({
   highlight = { enable = true },
 })
 
+local telescope = require('telescope')
+
+telescope.setup {
+  defaults = {file_ignore_patterns = { ".git/", "node_modules" }},
+  pickers = {
+    find_files = {
+      hidden = true
+    }
+  }
+}
+
 -- LSP Config
 
 -- Mappings.
