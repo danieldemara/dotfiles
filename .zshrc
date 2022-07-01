@@ -24,7 +24,7 @@ export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/d3/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Enable completions
 autoload -Uz compinit && compinit
