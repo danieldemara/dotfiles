@@ -6,41 +6,70 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 require('packer').startup(function()
-  use 'wbthomason/packer.nvim' -- Package manager
+  -- Package manager
+  use({"wbthomason/packer.nvim"})
 
+  -- Fuzzy Finder
+  use({
+    "nvim-telescope/telescope.nvim",
+    requires = { {"nvim-lua/plenary.nvim"} },
+    config = require("config.telescope")
+  })
+  use({
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make",
+  })
+
+  -- Better Syntax Highlighting
   use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    config = require("config.treesitter"),
   }
 
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+  -- Language Server
+  use({"neovim/nvim-lspconfig"})
 
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
-
-  -- LSP Config
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'RRethy/vim-illuminate'
+  -- Autocomplete
+  use({
+    "hrsh7th/nvim-cmp",
+    requires = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+    },
+    config = require("config.cmp"),
+  })
 
   -- Snippets
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
+  use({"L3MON4D3/LuaSnip"})
+  use({"saadparwaiz1/cmp_luasnip"})
 
-  use 'arcticicestudio/nord-vim' -- Colorscheme
+  -- Colorscheme
+  use({"arcticicestudio/nord-vim"})
 
-  use 'nvim-lualine/lualine.nvim'
-  use 'kyazdani42/nvim-web-devicons'
+  -- Highlight Current Word
+  use({"RRethy/vim-illuminate"})
 
-  use 'kyazdani42/nvim-tree.lua'
+  -- Status Bar
+  use ({
+    "nvim-lualine/lualine.nvim",
+    config = require("config.lualine"),
+  })
+  use({"kyazdani42/nvim-web-devicons"})
 
-  use 'jose-elias-alvarez/null-ls.nvim'
+  -- File Tree
+  use({"kyazdani42/nvim-tree.lua"})
+
+  -- Linter
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = require("config.null-ls"),
+  })
 
   if packer_bootstrap then
     require('packer').sync()

@@ -1,27 +1,9 @@
 require "options"
 require "plugins"
 require "keymap"
-require "line"
 require "autocmds"
 
 vim.api.nvim_command [[colorscheme nord]]
-
--- Tree Sitter
-require("nvim-treesitter.configs").setup({
-  ensure_installed = { "go" },
-  highlight = { enable = true },
-})
-
-local telescope = require('telescope')
-
-telescope.setup {
-  defaults = {file_ignore_patterns = { ".git/", "node_modules" }},
-  pickers = {
-    find_files = {
-      hidden = true
-    }
-  }
-}
 
 -- Tree Config
 require("nvim-tree").setup()
@@ -67,65 +49,13 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
--- Autocomplete setup
-local cmp = require'cmp'
-
-cmp.setup({
-  snippet = {
-    -- REQUIRED - you must specify a snippet engine
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-    end,
-  },
-  window = {
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-  }),
-  sources = cmp.config.sources({
-    { name = 'luasnip' }, -- For luasnip users.
-  }, {
-    { name = 'buffer' },
-  })
-})
-
--- Set configuration for specific filetype.
-cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = 'buffer' },
-  })
-})
-
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
-})
-
 -- Setup lspconfig.
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-lspconfig.intelephense.setup{}
+lspconfig.intelephense.setup{
+    on_attach = on_attach_vim,
+    capabilities = capabilities,
+}
 lspconfig.gopls.setup{
 	on_attach = on_attach_vim,
 	capabilities = capabilities,
@@ -150,15 +80,3 @@ lspconfig.gopls.setup{
 	},
 }
 
-require("null-ls").setup({
-    sources = {
-        -- require("null-ls").builtins.formatting.stylua,
-        -- require("null-ls").builtins.diagnostics.eslint,
-        -- require("null-ls").builtins.formatting.prettier,
-        require("null-ls").builtins.formatting.goimports,
-        -- require("null-ls").builtins.formatting.gofmt,
-        require("null-ls").builtins.formatting.gofumpt,
-        require("null-ls").builtins.diagnostics.phpcs,
-        require("null-ls").builtins.formatting.phpcbf,
-    },
-})
