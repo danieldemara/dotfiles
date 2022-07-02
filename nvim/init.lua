@@ -21,6 +21,10 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  -- Disable Built-in LSP formatting in favor of null-ls
+  client.resolved_capabilities.document_formatting = false
+  client.resolved_capabilities.document_range_formatting = false
+
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -53,11 +57,11 @@ local lsp_flags = {
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 lspconfig.intelephense.setup{
-    on_attach = on_attach_vim,
+    on_attach = on_attach,
     capabilities = capabilities,
 }
 lspconfig.gopls.setup{
-	on_attach = on_attach_vim,
+	on_attach = on_attach,
 	capabilities = capabilities,
 	cmd = {"gopls", "serve"},
 	settings = {
