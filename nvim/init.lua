@@ -8,6 +8,9 @@ vim.api.nvim_command [[colorscheme nord]]
 -- Tree Config
 require("nvim-tree").setup()
 
+-- GitSigns
+require('gitsigns').setup()
+
 -- LSP Config
 
 -- Mappings.

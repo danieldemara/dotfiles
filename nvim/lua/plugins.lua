@@ -71,6 +71,8 @@ require('packer').startup(function()
     config = require("config.null-ls"),
   })
 
+  use ({"lewis6991/gitsigns.nvim"})
+
   if packer_bootstrap then
     require('packer').sync()
   end
