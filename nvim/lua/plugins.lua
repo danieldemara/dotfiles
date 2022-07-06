@@ -60,7 +60,7 @@ require("packer").startup(function()
 	use({ "saadparwaiz1/cmp_luasnip" })
 
 	-- Colorscheme
-	use({ "arcticicestudio/nord-vim" })
+	use({ "folke/tokyonight.nvim" })
 
 	-- Highlight Current Word
 	use({ "RRethy/vim-illuminate" })
