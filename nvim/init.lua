@@ -28,6 +28,9 @@ local on_attach = function(client, bufnr)
   client.resolved_capabilities.document_formatting = false
   client.resolved_capabilities.document_range_formatting = false
 
+  -- Add intelligent highlighting
+  require('illuminate').on_attach(client)
+
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -46,8 +49,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
-
-  require('illuminate').on_attach(client)
 end
 
 local lsp_flags = {
@@ -61,10 +62,12 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 lspconfig.intelephense.setup{
     on_attach = on_attach,
     capabilities = capabilities,
+    flags = lsp_flags,
 }
 lspconfig.gopls.setup{
 	on_attach = on_attach,
 	capabilities = capabilities,
+    flags = lsp_flags,
 	cmd = {"gopls", "serve"},
 	settings = {
 		gopls = {
@@ -84,5 +87,31 @@ lspconfig.gopls.setup{
 			usePlaceholders = true,
 		},
 	},
+}
+
+lspconfig.sumneko_lua.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  rlags = lsp_flags,
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
 }
 
