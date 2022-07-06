@@ -16,6 +16,9 @@ font:
   offset:
     x: 0
     y: 26
+  glyph_offset:
+    x: 0
+    y: 30
   use_thin_strokes: true
 
 colors:

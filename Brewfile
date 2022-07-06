@@ -20,10 +20,12 @@ brew 'svn'
 brew 'kubectl'
 brew 'helm'
 brew 'awscli'
+brew 'protobuf'
 
 # Development
 brew 'java'
 brew 'golang'
+brew 'python'
 brew 'php'
 brew 'php@8.0'
 brew 'php@7.4'
@@ -34,6 +36,7 @@ brew 'yarn'
 brew 'postgresql'
 brew 'lua-language-server'
 brew 'jdtls'
+brew 'stylua'
 
 # Fonts
 cask 'font-fira-code-nerd-font'
