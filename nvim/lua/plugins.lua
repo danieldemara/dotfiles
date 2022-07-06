@@ -13,7 +13,9 @@ require('packer').startup(function()
   use({
     "nvim-telescope/telescope.nvim",
     requires = { {"nvim-lua/plenary.nvim"} },
-    config = require("config.telescope")
+    config = function()
+      require("config.telescope")
+    end
   })
   use({
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -24,7 +26,9 @@ require('packer').startup(function()
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    config = require("config.treesitter"),
+    config = function()
+      require("config.treesitter")
+    end
   }
 
   -- Language Server
@@ -39,7 +43,9 @@ require('packer').startup(function()
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
     },
-    config = require("config.cmp"),
+    config = function()
+      require("config.cmp")
+    end
   })
 
   -- Snippets
@@ -55,7 +61,9 @@ require('packer').startup(function()
   -- Status Bar
   use ({
     "nvim-lualine/lualine.nvim",
-    config = require("config.lualine"),
+    config = function()
+      require("config.lualine")
+    end
   })
   use({"kyazdani42/nvim-web-devicons"})
 
@@ -68,7 +76,9 @@ require('packer').startup(function()
     requires = {
       "nvim-lua/plenary.nvim",
     },
-    config = require("config.null-ls"),
+    config = function()
+      require("config.null-ls")
+    end
   })
 
   use ({"lewis6991/gitsigns.nvim"})
