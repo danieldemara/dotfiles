@@ -48,5 +48,10 @@ pecl install redis
 # Install tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# Install global go packages
+go install golang.org/x/tools/gopls@latest
+go install golang.org/x/tools/cmd/goimports@latest
+go install mvdan.cc/gofumpt@latest
+
 # Autoconfigure nvim packages
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
