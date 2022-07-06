@@ -4,13 +4,18 @@ env:
 font:
   normal:
     family: "FiraCode Nerd Font"
+    style: "Light"
   bold:
     family: "FiraCode Nerd Font"
+    style: "Bold"
   italic:
     family: "FiraCode Nerd Font"
   bold_italic:
     family: "FiraCode Nerd Font"
-  size: 22
+  size: 20
+  offset:
+    x: 0
+    y: 26
   use_thin_strokes: true
 
 colors:
