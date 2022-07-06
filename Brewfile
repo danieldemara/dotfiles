@@ -37,6 +37,7 @@ brew 'postgresql'
 brew 'lua-language-server'
 brew 'jdtls'
 brew 'stylua'
+brew 'google-java-format'
 
 # Fonts
 cask 'font-fira-code-nerd-font'

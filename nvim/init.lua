@@ -64,6 +64,11 @@ lspconfig.intelephense.setup({
 	capabilities = capabilities,
 	flags = lsp_flags,
 })
+lspconfig.jdtls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
 lspconfig.gopls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
