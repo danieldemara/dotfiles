@@ -21,6 +21,7 @@ brew 'kubectl'
 brew 'helm'
 brew 'awscli'
 brew 'protobuf'
+brew 'shellcheck'
 
 # Development
 brew 'java'
