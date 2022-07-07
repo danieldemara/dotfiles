@@ -2,7 +2,7 @@
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({
+	PACKER_BOOTSTRAP = fn.system({
 		"git",
 		"clone",
 		"--depth",
@@ -12,7 +12,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	})
 end
 
-require("packer").startup(function()
+require("packer").startup(function(use)
 	-- Package manager
 	use({ "wbthomason/packer.nvim" })
 
@@ -38,7 +38,7 @@ require("packer").startup(function()
 		end,
 	})
 
-	-- Language Server
+	-- Language Server Configs
 	use({ "neovim/nvim-lspconfig" })
 
 	-- Autocomplete
@@ -88,9 +88,17 @@ require("packer").startup(function()
 		end,
 	})
 
+	-- Git Gutter
 	use({ "lewis6991/gitsigns.nvim" })
 
-	if packer_bootstrap then
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("config.autopairs")
+		end,
+	})
+
+	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
 end)
