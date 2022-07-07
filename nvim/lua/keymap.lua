@@ -7,6 +7,22 @@ local opts = { silent = true }
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
+-- Disable ctrl+c
+keymap("i", "<C-c>", "<Nop>", opts)
+
+-- Remap jk to esc
+keymap("i", "jk", "<Esc>", opts)
+
+-- Disable arrow keys
+keymap("n", "<Up>", "<Nop>", opts)
+keymap("n", "<Down>", "<Nop>", opts)
+keymap("n", "<Left>", "<Nop>", opts)
+keymap("n", "<Right>", "<Nop>", opts)
+keymap("i", "<Up>", "<Nop>", opts)
+keymap("i", "<Down>", "<Nop>", opts)
+keymap("i", "<Left>", "<Nop>", opts)
+keymap("i", "<Right>", "<Nop>", opts)
+
 -- NvimTree
 keymap("n", "<leader>ee", ":NvimTreeToggle<CR>", opts)
 

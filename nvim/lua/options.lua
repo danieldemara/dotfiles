@@ -33,7 +33,7 @@ vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would sh
 vim.opt.wrap = false -- display lines as one long line
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
---vim.opt.fillchars.eob=" "
+vim.opt.fillchars.eob = " "
 vim.opt.shortmess:append("c")
 --vim.opt.whichwrap:append("<,>,[,],h,l")
 --vim.opt.iskeyword:append("-")
