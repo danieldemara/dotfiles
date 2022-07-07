@@ -3,4 +3,7 @@ treesitter.setup({
 	ensure_installed = { "go", "php", "phpdoc", "java", "python", "lua" },
 	highlight = { enable = true },
 	autopairs = { enable = true },
+	context_commentstring = {
+		enable = true,
+	},
 })

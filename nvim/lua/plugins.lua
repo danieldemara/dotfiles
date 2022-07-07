@@ -98,6 +98,14 @@ require("packer").startup(function(use)
 		end,
 	})
 
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("config.comment")
+		end,
+	})
+	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
