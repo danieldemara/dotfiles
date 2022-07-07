@@ -29,6 +29,13 @@ local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+lspconfig.bashls.setup({
+	on_attach = function(client, bufnr)
+		require("functions").lsp_on_attach(client, bufnr)
+	end,
+	capabilities = capabilities,
+})
+
 lspconfig.intelephense.setup({
 	on_attach = function(client, bufnr)
 		require("functions").lsp_on_attach(client, bufnr)
@@ -98,4 +105,18 @@ lspconfig.sumneko_lua.setup({
 			},
 		},
 	},
+})
+
+lspconfig.tsserver.setup({
+	on_attach = function(client, bufnr)
+		require("functions").lsp_on_attach(client, bufnr)
+	end,
+	capabilities = capabilities,
+})
+
+lspconfig.volar.setup({
+	on_attach = function(client, bufnr)
+		require("functions").lsp_on_attach(client, bufnr)
+	end,
+	capabilities = capabilities,
 })

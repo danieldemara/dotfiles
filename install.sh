@@ -37,7 +37,7 @@ brew tap homebrew/bundle
 brew bundle --file $DOTFILES/Brewfile
 
 # Install global npm packages
-npm install -g intelephense
+npm install -g bash-language-server typescript typescript-language-server intelephense @volar/vue-language-server eslint_d
 
 # Install PHP Extensions
 pecl install redis
