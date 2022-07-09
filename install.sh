@@ -37,7 +37,10 @@ brew tap homebrew/bundle
 brew bundle --file $DOTFILES/Brewfile
 
 # Install global npm packages
-npm install -g bash-language-server yaml-language-server pyright typescript typescript-language-server intelephense @volar/vue-language-server eslint_d @fsouza/prettierd
+npm install -g bash-language-server yaml-language-server \
+    pyright typescript typescript-language-server intelephense \
+    vscode-langservers-extracted @volar/vue-language-server eslint_d @fsouza/prettierd \
+    @tailwindcss/language-server
 
 # Install PHP Extensions
 pecl install redis
@@ -46,7 +49,7 @@ pecl install redis
 /usr/local/bin/composer global require "squizlabs/php_codesniffer=*"
 
 # Install global python packages
-pip3 install black flake8
+pip3 install black flake8 pylint
 
 # Install tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

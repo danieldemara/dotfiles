@@ -48,5 +48,6 @@ vim.cmd([[
     autocmd FileType java setlocal shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType lua setlocal shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType yaml setlocal shiftwidth=4 softtabstop=4 expandtab
+    autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
   augroup end
 ]])

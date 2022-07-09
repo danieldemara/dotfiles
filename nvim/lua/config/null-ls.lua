@@ -4,14 +4,25 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	sources = {
 		null_ls.builtins.diagnostics.eslint_d.with({
-			disabled_filetypes = { "vue" },
+			disabled_filetypes = { "vue" }, -- Let Volar LSP Take Over
 		}),
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.formatting.google_java_format,
 		null_ls.builtins.formatting.goimports,
 		null_ls.builtins.formatting.gofumpt,
 		null_ls.builtins.formatting.black,
-		null_ls.builtins.diagnostics.flake8,
+		null_ls.builtins.diagnostics.flake8.with({
+			prefer_local = "venv/bin",
+			condition = function(utils)
+				return not utils.root_has_file({ ".pylintrc" })
+			end,
+		}),
+		null_ls.builtins.diagnostics.pylint.with({
+			prefer_local = "venv/bin",
+			condition = function(utils)
+				return utils.root_has_file({ ".pylintrc" })
+			end,
+		}),
 		null_ls.builtins.diagnostics.phpcs.with({
 			prefer_local = "vendor/bin",
 		}),
