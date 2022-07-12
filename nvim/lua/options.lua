@@ -49,5 +49,9 @@ vim.cmd([[
     autocmd FileType lua setlocal shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType yaml setlocal shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
+    autocmd FileType vue setlocal shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType json setlocal shiftwidth=2 softtabstop=2 expandtab
   augroup end
 ]])

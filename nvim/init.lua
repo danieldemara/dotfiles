@@ -179,3 +179,10 @@ lspconfig.yamlls.setup({
 		},
 	},
 })
+
+lspconfig.jsonls.setup({
+	on_attach = function(client, bufnr)
+		require("functions").lsp_on_attach(client, bufnr)
+	end,
+	capabilities = capabilities,
+})

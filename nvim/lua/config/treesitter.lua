@@ -15,6 +15,7 @@ treesitter.setup({
 		"css",
 		"scss",
 		"vue",
+		"json",
 		"yaml",
 		"markdown",
 		"markdown_inline",
@@ -23,6 +24,9 @@ treesitter.setup({
 	highlight = { enable = true },
 	autopairs = { enable = true },
 	context_commentstring = {
+		enable = true,
+	},
+	indent = {
 		enable = true,
 	},
 })
