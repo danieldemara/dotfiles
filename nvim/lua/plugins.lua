@@ -105,6 +105,7 @@ require("packer").startup(function(use)
 		end,
 	})
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
+	use({ "windwp/nvim-ts-autotag" })
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

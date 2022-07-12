@@ -23,10 +23,7 @@ treesitter.setup({
 	},
 	highlight = { enable = true },
 	autopairs = { enable = true },
-	context_commentstring = {
-		enable = true,
-	},
-	indent = {
-		enable = true,
-	},
+	context_commentstring = { enable = true, enable_autocmd = false },
+	indent = { enable = true },
+	autotag = { enable = true },
 })
