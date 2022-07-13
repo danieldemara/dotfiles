@@ -107,6 +107,13 @@ require("packer").startup(function(use)
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 	use({ "windwp/nvim-ts-autotag" })
 
+	use({
+		"glepnir/dashboard-nvim",
+		config = function()
+			require("config.dashboard")
+		end,
+	})
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
