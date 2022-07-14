@@ -43,6 +43,13 @@ lspconfig.intelephense.setup({
 	end,
 	capabilities = capabilities,
 	flags = lsp_flags,
+	settings = {
+		intelephense = {
+			files = {
+				maxSize = 3000000,
+			},
+		},
+	},
 })
 
 lspconfig.jdtls.setup({
