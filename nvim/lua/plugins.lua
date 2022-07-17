@@ -114,6 +114,8 @@ require("packer").startup(function(use)
 		end,
 	})
 
+	use({ "mfussenegger/nvim-jdtls" })
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

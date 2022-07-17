@@ -52,14 +52,6 @@ lspconfig.intelephense.setup({
 	},
 })
 
-lspconfig.jdtls.setup({
-	on_attach = function(client, bufnr)
-		require("functions").lsp_on_attach(client, bufnr)
-	end,
-	capabilities = capabilities,
-	flags = lsp_flags,
-})
-
 lspconfig.gopls.setup({
 	on_attach = function(client, bufnr)
 		require("functions").lsp_on_attach(client, bufnr)

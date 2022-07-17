@@ -45,7 +45,6 @@ vim.cmd([[
     autocmd FileType make setlocal noexpandtab
     autocmd FileType go setlocal shiftwidth=4 softtabstop=4 noexpandtab colorcolumn=120
     autocmd FileType php setlocal shiftwidth=4 softtabstop=4 expandtab
-    autocmd FileType java setlocal shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType lua setlocal shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType yaml setlocal shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab

@@ -9,6 +9,10 @@ function M.lsp_on_attach(client, bufnr)
 
 	-- Add intelligent highlighting
 	require("illuminate").on_attach(client)
+	if client.name == "jdt.ls" then
+		client.resolved_capabilities.document_formatting = false
+		client.resolved_capabilities.textDocument.completion.completionItem.snippetSupport = false
+	end
 
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions

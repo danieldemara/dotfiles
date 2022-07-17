@@ -22,6 +22,7 @@ brew 'helm'
 brew 'awscli'
 brew 'protobuf'
 brew 'shellcheck'
+brew 'fd'
 
 # Development
 brew 'java'
