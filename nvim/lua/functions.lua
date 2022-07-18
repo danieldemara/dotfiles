@@ -9,9 +9,22 @@ function M.lsp_on_attach(client, bufnr)
 
 	-- Add intelligent highlighting
 	require("illuminate").on_attach(client)
+
+	-- Java LSP Special Config
 	if client.name == "jdt.ls" then
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.textDocument.completion.completionItem.snippetSupport = false
+		vim.lsp.codelens.refresh()
+
+		-- With `hotcodereplace = 'auto' the debug adapter will try to apply code changes
+		-- you make during a debug session immediately.
+		-- Remove the option if you do not want that.
+		require("jdtls").setup_dap({ hotcodereplace = "auto" })
+		-- Auto-create nvim-dap main class configs. TODO: May cause slowness in on_attach
+		require("jdtls.dap").setup_dap_main_class_configs()
+		-- Add additional commands
+		require("jdtls.setup").add_commands()
+
+		-- TODO: disabling JDTLS snippetSupport here causes a silent failure, nothing else will run
+		-- client.resolved_capabilities.textDocument.completion.completionItem.snippetSupport = false
 	end
 
 	-- Mappings.

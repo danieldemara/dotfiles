@@ -1,2 +1,4 @@
 aliases_work.zsh
 nvim/plugin
+nvim/java-debug
+nvim/vscode-java-test

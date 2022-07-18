@@ -59,5 +59,23 @@ go install golang.org/x/tools/gopls@latest
 go install golang.org/x/tools/cmd/goimports@latest
 go install mvdan.cc/gofumpt@latest
 
+# Configure Java LSP Addons
+if [ ! -d "$HOME/.config/nvim/java-debug" ]
+then
+    git clone git@github.com:microsoft/java-debug.git ~/.config/nvim/java-debug
+fi
+pushd ~/.config/nvim/java-debug
+./mvnw clean install
+popd
+
+if [ ! -d "$HOME/.config/nvim/vscode-java-test" ]
+then
+    git clone git@github.com:microsoft/vscode-java-test.git ~/.config/nvim/vscode-java-test
+fi
+pushd ~/.config/nvim/vscode-java-test
+npm install
+npm run build-plugin
+popd
+
 # Autoconfigure nvim packages
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
