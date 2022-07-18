@@ -24,17 +24,40 @@ local lsp_flags = {
 	debounce_text_changes = 150,
 }
 
--- Setup lspconfig.
-local lspconfig = require("lspconfig")
-local lsputil = require("lspconfig.util")
+-- Pull in Auto-completion capabilities
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+-- Install the following language servers
+local servers = {
+	"bashls",
+	"cssls",
+	"gopls",
+	"jsonls",
+	"jdtls",
+	"tsserver",
+	"sumneko_lua",
+	"intelephense",
+	"pyright",
+	"tailwindcss",
+	"volar",
+	"yamlls",
+}
+
+require("nvim-lsp-installer").setup({
+	ensure_installed = servers,
+})
+
+-- Configure LSP Servers
+local lspconfig = require("lspconfig")
+local lsputil = require("lspconfig.util")
 
 lspconfig.bashls.setup({
 	on_attach = function(client, bufnr)
 		require("functions").lsp_on_attach(client, bufnr)
 	end,
 	capabilities = capabilities,
+	flags = lsp_flags,
 })
 
 lspconfig.intelephense.setup({
@@ -84,7 +107,7 @@ lspconfig.sumneko_lua.setup({
 		require("functions").lsp_on_attach(client, bufnr)
 	end,
 	capabilities = capabilities,
-	rlags = lsp_flags,
+	flags = lsp_flags,
 	settings = {
 		Lua = {
 			runtime = {
@@ -112,6 +135,7 @@ lspconfig.pyright.setup({
 		require("functions").lsp_on_attach(client, bufnr)
 	end,
 	capabilities = capabilities,
+	flags = lsp_flags,
 })
 
 lspconfig.tsserver.setup({
@@ -119,6 +143,7 @@ lspconfig.tsserver.setup({
 		require("functions").lsp_on_attach(client, bufnr)
 	end,
 	capabilities = capabilities,
+	flags = lsp_flags,
 })
 
 lspconfig.html.setup({
@@ -126,6 +151,7 @@ lspconfig.html.setup({
 		require("functions").lsp_on_attach(client, bufnr)
 	end,
 	capabilities = capabilities,
+	flags = lsp_flags,
 })
 
 lspconfig.cssls.setup({
@@ -133,6 +159,7 @@ lspconfig.cssls.setup({
 		require("functions").lsp_on_attach(client, bufnr)
 	end,
 	capabilities = capabilities,
+	flags = lsp_flags,
 })
 
 lspconfig.tailwindcss.setup({
@@ -140,6 +167,7 @@ lspconfig.tailwindcss.setup({
 		require("functions").lsp_on_attach(client, bufnr)
 	end,
 	capabilities = capabilities,
+	flags = lsp_flags,
 	root_dir = lsputil.root_pattern("tailwind.config.js", "tailwind.config.ts"),
 })
 
@@ -148,6 +176,7 @@ lspconfig.volar.setup({
 		require("functions").lsp_on_attach(client, bufnr)
 	end,
 	capabilities = capabilities,
+	flags = lsp_flags,
 })
 
 lspconfig.yamlls.setup({
@@ -155,6 +184,7 @@ lspconfig.yamlls.setup({
 		require("functions").lsp_on_attach(client, bufnr)
 	end,
 	capabilities = capabilities,
+	flags = lsp_flags,
 	settings = {
 		yaml = {
 			schemaStore = {
@@ -184,4 +214,5 @@ lspconfig.jsonls.setup({
 		require("functions").lsp_on_attach(client, bufnr)
 	end,
 	capabilities = capabilities,
+	flags = lsp_flags,
 })

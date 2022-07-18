@@ -40,6 +40,10 @@ require("packer").startup(function(use)
 
 	-- Language Server Configs
 	use({ "neovim/nvim-lspconfig" })
+	use({
+		"williamboman/nvim-lsp-installer",
+		requires = { "neovim/nvim-lspconfig" },
+	})
 
 	-- Autocomplete
 	use({

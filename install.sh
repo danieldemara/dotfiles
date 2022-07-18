@@ -37,10 +37,7 @@ brew tap homebrew/bundle
 brew bundle --file $DOTFILES/Brewfile
 
 # Install global npm packages
-npm install -g bash-language-server yaml-language-server \
-    pyright typescript typescript-language-server intelephense \
-    vscode-langservers-extracted @volar/vue-language-server eslint_d @fsouza/prettierd \
-    @tailwindcss/language-server
+npm install -g eslint_d @fsouza/prettierd
 
 # Install PHP Extensions
 pecl install redis

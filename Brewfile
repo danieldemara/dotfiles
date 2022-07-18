@@ -36,8 +36,6 @@ brew 'node'
 brew 'redis'
 brew 'yarn'
 brew 'postgresql'
-brew 'lua-language-server'
-brew 'jdtls'
 brew 'stylua'
 brew 'google-java-format'
 
