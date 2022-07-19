@@ -35,3 +35,7 @@ function find-pod()
 }
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 
+function jwt-decode() {
+  jq -R 'split(".") |.[0:2] | map(@base64d) | map(fromjson)' <<< $1
+}
+
