@@ -87,16 +87,9 @@ local config = {
 			maven = {
 				downloadSources = true,
 			},
-			implementationsCodeLens = {
-				enabled = false,
-			},
-			referencesCodeLens = {
-				enabled = false,
-			},
 			references = {
 				includeDecompiledSources = true,
 			},
-			-- Set this to true to use jdtls as your formatter
 			format = {
 				enabled = false,
 			},
@@ -145,12 +138,12 @@ local config = {
 	},
 }
 
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	pattern = { "*.java" },
-	callback = function()
-		vim.lsp.codelens.refresh()
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+-- 	pattern = { "*.java" },
+-- 	callback = function()
+-- 		vim.lsp.codelens.refresh()
+-- 	end,
+-- })
 
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
