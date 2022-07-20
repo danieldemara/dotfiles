@@ -112,9 +112,9 @@ require("packer").startup(function(use)
 	use({ "windwp/nvim-ts-autotag" })
 
 	use({
-		"glepnir/dashboard-nvim",
+		"folke/which-key.nvim",
 		config = function()
-			require("config.dashboard")
+			require("config.whichkey")
 		end,
 	})
 

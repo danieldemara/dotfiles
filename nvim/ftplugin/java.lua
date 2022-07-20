@@ -149,17 +149,18 @@ local config = {
 -- or attaches to an existing client & server depending on the `root_dir`.
 require("jdtls").start_or_attach(config)
 
--- Shorten function name
-local keymap = vim.keymap.set
--- Silent keymap option
-local opts = { silent = true }
+local wk = require("which-key")
 
-keymap("n", "<leader>oi", "<Cmd>lua require('jdtls').organize_imports()<CR>", opts)
-keymap("n", "<leader>ev", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
-keymap("n", "<leader>ec", "<Cmd>lua require('jdtls').extract_constant()<CR>", opts)
-keymap("n", "<leader>tm", "<Cmd>lua require('jdtls').test_nearest_method()<CR>", opts)
-keymap("n", "<leader>tc", "<Cmd>lua require('jdtls').test_class()<CR>", opts)
+wk.register({
+	["<leader>oi"] = { "<Cmd>lua require('jdtls').organize_imports()<CR>", "" },
+	["<leader>ev"] = { "<Cmd>lua require('jdtls').extract_variable()<CR>", "" },
+	["<leader>ec"] = { "<Cmd>lua require('jdtls').extract_constant()<CR>", "" },
+	["<leader>tm"] = { "<Cmd>lua require('jdtls').test_nearest_method()<CR>", "" },
+	["<leader>tc"] = { "<Cmd>lua require('jdtls').test_class()<CR>", "" },
+}, { mode = "n", silent = true })
 
-keymap("v", "<leader>ev", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
-keymap("v", "<leader>ec", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", opts)
-keymap("v", "<leader>em", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
+wk.register({
+	["<leader>ev"] = { "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "" },
+	["<leader>ec"] = { "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "" },
+	["<leader>em"] = { "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "" },
+}, { mode = "v", silent = true })
