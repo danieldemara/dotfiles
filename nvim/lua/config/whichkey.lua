@@ -32,7 +32,15 @@ whichkey.register({
 		t = { "<cmd>lua require'dap'.terminate()<cr>", "[D]ebug [T]erminate" },
 	},
 	["<leader>e"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "" },
-	["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Go to previous error" },
-	["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Go to next error" },
+	["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Go to previous any" },
+	["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Go to next any" },
+	["[e"] = {
+		"<cmd>lua vim.diagnostic.goto_prev({severity = vim.diagnostic.severity.ERROR})<cr>",
+		"Go to previous error",
+	},
+	["]e"] = {
+		"<cmd>lua vim.diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR})<cr>",
+		"Go to next error",
+	},
 	["<leader>q"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "" },
 })
