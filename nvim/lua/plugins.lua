@@ -97,6 +97,16 @@ require("packer").startup(function(use)
 	use({ "lewis6991/gitsigns.nvim" })
 
 	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("indent_blankline").setup({
+				char = "┊",
+				show_trailing_blankline_indent = false,
+			})
+		end,
+	})
+
+	use({
 		"windwp/nvim-autopairs",
 		config = function()
 			require("config.autopairs")

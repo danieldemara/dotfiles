@@ -7,9 +7,6 @@ local opts = { silent = true }
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
--- Disable ctrl+c
-keymap("i", "<C-c>", "<Nop>", opts)
-
 -- Paste over currently selected text without yanking it
 keymap("v", "p", '"_dP', opts)
 

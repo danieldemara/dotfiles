@@ -41,7 +41,7 @@ function M.lsp_on_attach(client, bufnr)
 		["<C-k>"] = { "<cmd>vim.lsp.buf.signature_help()<cr>", "Signature Documentation" },
 		["<leader>rn"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "[R]e[n]ame" },
 		["<leader>ca"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "[C]ode [A]ction" },
-		["<leader>f"] = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "[F]ormat" },
+		-- ["<leader>f"] = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "[F]ormat" },
 		["<leader>ds"] = { "<cmd>Telescope lsp_document_symbols<cr>", "[D]ocument [S]ymbols" },
 		["<leader>ws"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "[W]orkspace [S]ymbols" },
 		["<leader>w"] = {

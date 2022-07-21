@@ -12,8 +12,13 @@ whichkey.register({
 	["<leader>f"] = {
 		name = "File Management",
 		f = { "<cmd>Telescope find_files<cr>", "[F]ind [F]ile" },
+		F = { "<cmd>Telescope find_files no_ignore=true<cr>", "[F]ind [F]ile (All)" },
 		r = { "<cmd>Telescope oldfiles<cr>", "[F]ind [R]ecent Files" },
 		i = { "<cmd>Telescope live_grep<cr>", "[F]ind [I]n Files" },
+		I = {
+			"<cmd>lua require('telescope.builtin').live_grep({additional_args = function(opts) return {'--no-ignore'} end})<cr>",
+			"[F]ind [I]n Files (All)",
+		},
 		b = { "<cmd>Telescope buffers<cr>", "[F]ind [B]uffers" },
 		p = { "<cmd>Telescope projects<cr>", "[F]ind [P]rojects" },
 		t = { "<cmd>NvimTreeToggle<cr>", "[F]ind [P]rojects" },
