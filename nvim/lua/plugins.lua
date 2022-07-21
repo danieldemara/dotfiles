@@ -37,6 +37,7 @@ require("packer").startup(function(use)
 			require("config.treesitter")
 		end,
 	})
+	use({ "nvim-treesitter/nvim-treesitter-textobjects" })
 
 	-- Language Server Configs
 	use({ "neovim/nvim-lspconfig" })
