@@ -9,6 +9,11 @@ whichkey.register({
 
 -- Normal Mode Bindings
 whichkey.register({
+	-- Better window navigation
+	["<C-h>"] = { "<C-w>h", "Go to Left Split" },
+	["<C-j>"] = { "<C-w>j", "Go to Lower Split" },
+	["<C-k>"] = { "<C-w>k", "Go to Upper Split" },
+	["<C-l>"] = { "<C-w>l", "Go to Right Split" },
 	["<leader>f"] = {
 		name = "File Management",
 		f = { "<cmd>Telescope find_files<cr>", "[F]ind [F]ile" },
