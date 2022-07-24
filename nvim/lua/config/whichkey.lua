@@ -29,6 +29,17 @@ whichkey.register({
 		t = { "<cmd>NvimTreeToggle<cr>", "[F]ind [P]rojects" },
 		n = { "New File" },
 	},
+	["<leader>g"] = {
+		name = "Git",
+		b = { "<cmd>lua require('gitsigns').blame_line()<cr>", "[G]it [B]lame" },
+		p = { "<cmd>lua require('gitsigns').preview_hunk()<cr>", "[G]it [P]review Hunk" },
+		s = { "<cmd>lua require('gitsigns').stage_hunk()<cr>", "[G]it [S]tage Hunk" },
+		u = { "<cmd>lua require('gitsigns').undo_stage_hunk()<cr>", "[G]it [U]ndo Stage Hunk" },
+		r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "[G]it [R]eset Hunk" },
+		d = { "<cmd>lua require('gitsigns').diffthis()<cr>", "[G]it [D]iff" },
+		S = { "<cmd>lua require('gitsigns').stage_buffer()<cr>", "[G]it [S]tage Buffer" },
+		R = { "<cmd>lua require('gitsigns').reset_buffer()<cr>", "[G]it [R]eset Buffer" },
+	},
 	["<leader>d"] = {
 		name = "Debugging",
 		b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "[D]ebug [B]reakpoint" },
