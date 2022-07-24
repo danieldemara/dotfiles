@@ -3,11 +3,14 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
 	sources = {
+		null_ls.builtins.code_actions.gitsigns,
 		null_ls.builtins.diagnostics.eslint_d.with({
 			disabled_filetypes = { "vue" }, -- Let Volar LSP Take Over
 		}),
 		null_ls.builtins.formatting.prettierd,
-		null_ls.builtins.formatting.google_java_format,
+		null_ls.builtins.formatting.google_java_format.with({
+			extra_args = { "--aosp" }, -- Use AOSP style to use 4 space indentation instead of 2
+		}),
 		null_ls.builtins.formatting.goimports,
 		null_ls.builtins.formatting.gofumpt,
 		null_ls.builtins.formatting.black,
