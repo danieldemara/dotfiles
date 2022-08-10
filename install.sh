@@ -29,6 +29,10 @@ ln -s $HOME/.dotfiles/nvim $HOME/.config/nvim
 rm -rf $HOME/.tmux.conf
 ln -s $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 
+# ideavim
+rm -rf $HOME/.ideavimrc
+ln -s $HOME/.dotfiles/.ideavimrc $HOME/.ideavimrc
+
 # Update Homebrew recipes
 brew update
 

@@ -1,0 +1,48 @@
+""" Editing and Reloading the Config
+set clipboard+=unnamed
+set clipboard+=ideaput
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+""" The Escape button
+map <C-c> <Esc>
+imap jk <esc>
+
+set relativenumber
+set number
+set incsearch
+set visualbell
+
+""" Plugins
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+Plug 'machakann/vim-highlightedyank'
+" https://github.com/JetBrains/ideavim/wiki/%60ideajoin%60-examples
+set ideajoin
+
+""" The Leader Key
+let mapleader=" "
+
+""" Navigation
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-=> :action Unsplit<CR>
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
+nnoremap <c-o> :action Back<CR>
+nnoremap <c-i> :action Forward<CR>
+
+vnoremap < <gv
+vnoremap > >gv
+
+""" Running and Debugging
+nnoremap <leader>tt :action ContextRun<CR>
+nnoremap <leader>tc :action RunClass<CR>
+nnoremap <leader>tr :action Rerun<CR>
+nnoremap <leader>tw :action ActivateRunToolWindow<CR>
