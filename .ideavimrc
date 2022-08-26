@@ -8,10 +8,12 @@ nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 map <C-c> <Esc>
 imap jk <esc>
 
+set showmode
 set relativenumber
 set number
 set incsearch
 set visualbell
+set timeoutlen=400
 
 """ Plugins
 Plug 'tpope/vim-commentary'
@@ -37,6 +39,12 @@ nnoremap <c-k> <c-w>k
 
 nnoremap <c-o> :action Back<CR>
 nnoremap <c-i> :action Forward<CR>
+nnoremap <c-p> :action ParameterInfo<CR>
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fi :action FindInPath<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>ca :action ShowIntentionActions<CR>
+
 
 vnoremap < <gv
 vnoremap > >gv
@@ -45,4 +53,5 @@ vnoremap > >gv
 nnoremap <leader>tt :action ContextRun<CR>
 nnoremap <leader>tc :action RunClass<CR>
 nnoremap <leader>tr :action Rerun<CR>
+nnoremap <leader>tf :action RerunFailedTests<CR>
 nnoremap <leader>tw :action ActivateRunToolWindow<CR>
