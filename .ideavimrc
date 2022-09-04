@@ -36,22 +36,40 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
-
 nnoremap <c-o> :action Back<CR>
 nnoremap <c-i> :action Forward<CR>
+
+""" File Management
 nnoremap <c-p> :action ParameterInfo<CR>
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>fi :action FindInPath<CR>
+nnoremap <leader>ft :action ActivateProjectToolWindow<CR>
+
+""" Code
 nnoremap <leader>rn :action RenameElement<CR>
 nnoremap <leader>ca :action ShowIntentionActions<CR>
 
+""" Running
+nnoremap <leader>rr :action ContextRun<CR>
+nnoremap <leader>rc :action RunClass<CR>
+nnoremap <leader>re :action Rerun<CR>
+nnoremap <leader>rw :action ActivateRunToolWindow<CR>
+nnoremap <leader>rf :action RerunFailedTests<CR>
+
+""" Debugging
+nnoremap <leader>dd :action ContextDebug<CR>
+nnoremap <leader>dc :action DebugClass<CR>
+nnoremap <leader>db :action ToggleLineBreakpoint<CR>
+nnoremap <leader>do :action StepOver<CR>
+nnoremap <leader>di :action StepInto<CR>
+nnoremap <leader>dO :action StepOut<CR>
+nnoremap <leader>de :action EvaluateExpression<CR>
+
+""" Stop Any Run/Debug
+nnoremap <leader>st :action Stop<CR>
+
+""" Git
+nnoremap <leader>gb :action Annotate<CR>
 
 vnoremap < <gv
 vnoremap > >gv
-
-""" Running and Debugging
-nnoremap <leader>tt :action ContextRun<CR>
-nnoremap <leader>tc :action RunClass<CR>
-nnoremap <leader>tr :action Rerun<CR>
-nnoremap <leader>tf :action RerunFailedTests<CR>
-nnoremap <leader>tw :action ActivateRunToolWindow<CR>
