@@ -22,6 +22,7 @@ brew 'awscli'
 brew 'protobuf'
 brew 'shellcheck'
 brew 'fd'
+cask 'karabiner-elements'
 
 # Development
 brew 'java'

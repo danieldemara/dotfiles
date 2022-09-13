@@ -17,6 +17,10 @@ fi
 rm -rf $HOME/.zshrc
 ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 
+# karabiner
+rm -rf $HOME/.config/karabiner
+ln -s $HOME/.dotfiles/karabiner $HOME/.config/karabiner
+
 # alacritty
 rm -rf $HOME/.config/alacritty
 ln -s $HOME/.dotfiles/alacritty $HOME/.config/alacritty
