@@ -67,6 +67,7 @@ nnoremap <leader>de :action EvaluateExpression<CR>
 
 """ Stop Any Run/Debug
 nnoremap <leader>st :action Stop<CR>
+nnoremap <leader>rs :action Resume<CR>
 
 """ Git
 nnoremap <leader>gb :action Annotate<CR>
