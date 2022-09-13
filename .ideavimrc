@@ -5,7 +5,6 @@ nnoremap \e :e ~/.ideavimrc<CR>
 nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 
 """ The Escape button
-map <C-c> <Esc>
 imap jk <esc>
 
 set showmode
