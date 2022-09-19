@@ -122,7 +122,7 @@ prompt pure
 bindkey -v
 export KEYTIMEOUT=10
 
-# bindkey "^R" history-incremental-pattern-search-backward
+bindkey "^R" history-incremental-pattern-search-backward
 
 # ci", ci', ci`, di", etc
 autoload -U select-quoted
