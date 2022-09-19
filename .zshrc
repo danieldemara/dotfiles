@@ -33,7 +33,7 @@ autoload -Uz compinit && compinit
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="cloud"
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -114,36 +114,15 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Enable pure prompt
+autoload -U promptinit; promptinit
+prompt pure
+
 # Enable vi mode
 bindkey -v
-export KEYTIMEOUT=20
+export KEYTIMEOUT=10
 
-# Always start in insert mode
-zle-line-init() {
-    zle -K viins  # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-
-zle -N zle-line-init
-
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-    case $KEYMAP in
-        vicmd) echo -ne '\e[1 q';;      # block
-        viins|main) echo -ne '\e[5 q';; # beam
-    esac
-}
-
-zle -N zle-keymap-select
-
-bindkey -M viins 'jk' vi-cmd-mode
-
-bindkey "^?" backward-delete-char
-
-bindkey "^R" history-incremental-pattern-search-backward
+# bindkey "^R" history-incremental-pattern-search-backward
 
 # ci", ci', ci`, di", etc
 autoload -U select-quoted
@@ -162,3 +141,5 @@ for m in visual viopp; do
 		bindkey -M $m $c select-bracketed
 	done
 done
+
+# source "$HOME/.zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh"

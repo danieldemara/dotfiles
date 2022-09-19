@@ -1,5 +1,5 @@
-env:
-  TERM: xterm-256color
+# env:
+#   TERM: alacritty
 
 font:
   normal:
@@ -15,11 +15,18 @@ font:
   size: 20
   offset:
     x: 0
-    y: 26
+    y: 0
+    # y: 26
   glyph_offset:
     x: 0
-    y: 30
+    y: 0
+    # y: 30
   use_thin_strokes: true
+
+window:
+  padding:
+    x: 5
+    y: 5
 
 # TokyoNight Alacritty Colors
 colors:
