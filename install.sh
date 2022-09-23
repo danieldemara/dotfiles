@@ -82,5 +82,8 @@ npm install
 npm run build-plugin
 popd
 
+# Enable font smoothing for macos for alacritty
+defaults write org.alacritty AppleFontSmoothing -int 0
+
 # Autoconfigure nvim packages
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
