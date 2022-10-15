@@ -11,6 +11,8 @@ require("nvim-tree").setup()
 -- GitSigns
 require("gitsigns").setup()
 
+local lspconfig_util = require("lspconfig.util")
+
 -- LSP Config
 local lsp_flags = {
 	-- This is the default in Nvim 0.7+
@@ -37,7 +39,8 @@ local servers = {
 	"yamlls",
 }
 
-require("nvim-lsp-installer").setup({
+require("mason").setup()
+require("mason-lspconfig").setup({
 	ensure_installed = servers,
 })
 
@@ -244,7 +247,20 @@ lspconfig.tailwindcss.setup({
 	root_dir = lsputil.root_pattern("tailwind.config.js", "tailwind.config.ts"),
 })
 
+local function get_typescript_lib_path(root_dir)
+	local project_root = lspconfig_util.find_node_modules_ancestor(root_dir)
+	return project_root and (lspconfig_util.path.join(project_root, "node_modules", "typescript", "lib")) or ""
+end
+
 lspconfig.volar.setup({
+	init_options = {
+		typescript = {
+			tsdk = "",
+		},
+	},
+	on_new_config = function(new_config, new_root_dir)
+		new_config.init_options.typescript.tsdk = get_typescript_lib_path(new_root_dir)
+	end,
 	on_attach = function(client, bufnr)
 		require("functions").lsp_on_attach(client, bufnr)
 	end,

@@ -43,7 +43,7 @@ whichkey.register({
 	["<leader>d"] = {
 		name = "Debugging",
 		b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "[D]ebug [B]reakpoint" },
-		c = { "<cmd>lua require'dap'.continue()<cr>", "[D]ebug [C]ontiue" },
+		d = { "<cmd>lua require'dap'.continue()<cr>", "[D]ebug Start/Continue" },
 		i = { "<cmd>lua require'dap'.step_into()<cr>", "[D]ebug Step [I]nto" },
 		o = { "<cmd>lua require'dap'.step_over()<cr>", "[D]ebug Step [O]ver" },
 		O = { "<cmd>lua require'dap'.step_out()<cr>", "[D]ebug Step [O]ut" },
