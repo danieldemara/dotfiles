@@ -26,7 +26,7 @@ whichkey.register({
 		},
 		b = { "<cmd>Telescope buffers<cr>", "[F]ind [B]uffers" },
 		p = { "<cmd>Telescope projects<cr>", "[F]ind [P]rojects" },
-		t = { "<cmd>NvimTreeToggle<cr>", "[F]ind [P]rojects" },
+		t = { "<cmd>NvimTreeFindFileToggle<cr>", "Toggle [F]ile [T]ree" },
 		n = { "New File" },
 	},
 	["<leader>g"] = {
