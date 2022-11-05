@@ -29,6 +29,8 @@ alias k=kubectl
 alias kns="kubectl config set-context --current --namespace "
 alias kctx="kubectl config use-context "
 
+alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
+
 function find-pod()
 {
     kubectl get pods --no-headers -o custom-columns=":metadata.name" | grep $1

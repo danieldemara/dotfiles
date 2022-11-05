@@ -23,6 +23,7 @@ brew 'awscli'
 brew 'protobuf'
 brew 'shellcheck'
 brew 'fd'
+brew 'glow'
 cask 'karabiner-elements'
 
 # Development
