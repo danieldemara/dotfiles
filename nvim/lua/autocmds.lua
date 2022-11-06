@@ -23,3 +23,23 @@ api.nvim_create_autocmd("TextYankPost", {
 	command = "silent! lua vim.highlight.on_yank()",
 	group = yankGrp,
 })
+
+-- Add spellcheck/word wrap on git commits
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "gitcommit" },
+	callback = function()
+		vim.opt_local.wrap = true
+		vim.opt_local.spell = true
+		vim.opt_local.colorcolumn = "0"
+	end,
+})
+
+-- Add spellcheck/word wrap on markdown files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "markdown" },
+	callback = function()
+		vim.opt_local.wrap = true
+		vim.opt_local.spell = true
+		vim.opt_local.colorcolumn = "0"
+	end,
+})

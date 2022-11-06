@@ -38,7 +38,7 @@ vim.opt.fillchars.eob = " "
 vim.opt.shortmess:append("c")
 --vim.opt.whichwrap:append("<,>,[,],h,l")
 --vim.opt.iskeyword:append("-")
-vim.wo.colorcolumn = "100"
+vim.wo.colorcolumn = "120"
 
 vim.cmd([[
   augroup file_type_tab_config
