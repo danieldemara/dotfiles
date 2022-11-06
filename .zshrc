@@ -1,6 +1,10 @@
 # Dotfiles Path
 export DOTFILES=$HOME/.dotfiles
 
+# Set Neovim as the default editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
 # (PHP)
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
