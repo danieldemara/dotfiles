@@ -138,6 +138,15 @@ require("packer").startup(function(use)
 
 	use({ "mfussenegger/nvim-jdtls" })
 
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

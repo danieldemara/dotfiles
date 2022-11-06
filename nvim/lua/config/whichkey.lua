@@ -52,6 +52,10 @@ whichkey.register({
 		u = { "<cmd>lua require'dapui'.toggle()<cr>", "[D]ebug [U]I" },
 		t = { "<cmd>lua require'dap'.terminate()<cr>", "[D]ebug [T]erminate" },
 	},
+	["<leader>m"] = {
+		name = "Markdown",
+		p = { "<cmd>MarkdownPreviewToggle<cr>", "[M]arkdown [P]review" },
+	},
 	["<leader>e"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "" },
 	["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Go to previous any" },
 	["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Go to next any" },
