@@ -38,7 +38,7 @@ function M.lsp_on_attach(client, bufnr)
 		gr = { "<cmd>lua vim.lsp.buf.references()<cr>", "[G]o to [R]eferences" },
 		gt = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "[G]o to [T]ype Definition" },
 		K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Commands" },
-		["<C-k>"] = { "<cmd>vim.lsp.buf.signature_help()<cr>", "Signature Documentation" },
+		["<leader>si"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Documentation" },
 		["<leader>rn"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "[R]e[n]ame" },
 		["<leader>ca"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "[C]ode [A]ction" },
 		-- ["<leader>f"] = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "[F]ormat" },

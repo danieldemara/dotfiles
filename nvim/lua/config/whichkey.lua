@@ -3,9 +3,9 @@ local whichkey = require("which-key")
 whichkey.setup({})
 
 -- Insert Mode Bindings
-whichkey.register({
-	jk = { "<Esc>", "Exit Insert Mode" },
-}, { mode = "i" })
+-- whichkey.register({
+-- 	jk = { "<Esc>", "Exit Insert Mode" },
+-- }, { mode = "i" })
 
 -- Normal Mode Bindings
 whichkey.register({
@@ -27,7 +27,7 @@ whichkey.register({
 		b = { "<cmd>Telescope buffers<cr>", "[F]ind [B]uffers" },
 		p = { "<cmd>Telescope projects<cr>", "[F]ind [P]rojects" },
 		t = { "<cmd>NvimTreeFindFileToggle<cr>", "Toggle [F]ile [T]ree" },
-		n = { "New File" },
+		n = { "<cmd>vnew<cr>", "[F]ile [N]ew" },
 	},
 	["<leader>g"] = {
 		name = "Git",
