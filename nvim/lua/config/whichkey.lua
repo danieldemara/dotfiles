@@ -43,6 +43,10 @@ whichkey.register({
 	["<leader>d"] = {
 		name = "Debugging",
 		b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "[D]ebug [B]reakpoint" },
+		B = {
+			"<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
+			"[D]ebug Conditional [B]reakpoint",
+		},
 		d = { "<cmd>lua require'dap'.continue()<cr>", "[D]ebug Start/Continue" },
 		i = { "<cmd>lua require'dap'.step_into()<cr>", "[D]ebug Step [I]nto" },
 		o = { "<cmd>lua require'dap'.step_over()<cr>", "[D]ebug Step [O]ver" },

@@ -2,7 +2,7 @@ local dap = require("dap")
 local dapui = require("dapui")
 
 dapui.setup({
-	icons = { expanded = "▾", collapsed = "▸" },
+	icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
 	mappings = {
 		-- Use a table to apply multiple mappings
 		expand = { "<CR>", "<2-LeftMouse>" },
@@ -12,9 +12,17 @@ dapui.setup({
 		repl = "r",
 		toggle = "t",
 	},
+	-- Use this to override mappings for specific elements
+	element_mappings = {
+		-- Example:
+		-- stacks = {
+		--   open = "<CR>",
+		--   expand = "o",
+		-- }
+	},
 	-- Expand lines larger than the window
 	-- Requires >= 0.7
-	expand_lines = vim.fn.has("nvim-0.7"),
+	expand_lines = vim.fn.has("nvim-0.7") == 1,
 	-- Layouts define sections of the screen to place windows.
 	-- The position can be "left", "right", "top" or "bottom".
 	-- The size specifies the height/width depending on position. It can be an Int
@@ -43,6 +51,22 @@ dapui.setup({
 			position = "bottom",
 		},
 	},
+	controls = {
+		-- Requires Neovim nightly (or 0.8 when released)
+		enabled = true,
+		-- Display controls in this element
+		element = "repl",
+		icons = {
+			pause = "",
+			play = "",
+			step_into = "",
+			step_over = "",
+			step_out = "",
+			step_back = "",
+			run_last = "↻",
+			terminate = "□",
+		},
+	},
 	floating = {
 		max_height = nil, -- These can be integers or a float between 0 and 1.
 		max_width = nil, -- Floats will be treated as percentage of your screen.
@@ -54,8 +78,11 @@ dapui.setup({
 	windows = { indent = 1 },
 	render = {
 		max_type_length = nil, -- Can be integer or nil.
+		max_value_lines = 100, -- Can be integer or nil.
 	},
 })
+
+require("nvim-dap-virtual-text").setup()
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 
@@ -70,3 +97,18 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close()
 end
+
+dap.adapters.php = {
+	type = "executable",
+	command = "node",
+	args = { vim.fn.stdpath("data") .. "/mason/packages/php-debug-adapter/extension/out/phpDebug.js" },
+}
+
+dap.configurations.php = {
+	{
+		type = "php",
+		request = "launch",
+		name = "Listen for Xdebug",
+		port = 9003,
+	},
+}

@@ -48,6 +48,7 @@ brew bundle --file $DOTFILES/Brewfile
 npm install -g eslint_d @fsouza/prettierd
 
 # Install PHP Extensions
+pecl install xdebug
 pecl install redis
 
 # Install global composer packages
