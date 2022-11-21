@@ -24,6 +24,7 @@ alias pop="git stash pop"
 alias show="git show"
 alias wip="git commit -am wip"
 alias nah="git reset --hard && git clean -df"
+alias ccb="git branch --show-current | tr -d '\n' | pbcopy"
 
 alias k=kubectl
 alias kns="kubectl config set-context --current --namespace "
