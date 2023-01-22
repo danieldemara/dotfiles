@@ -147,3 +147,7 @@ for m in visual viopp; do
 done
 
 # source "$HOME/.zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh"
+
+# Terraform auto complete
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform

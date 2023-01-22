@@ -148,6 +148,8 @@ require("packer").startup(function(use)
 		ft = { "markdown" },
 	})
 
+    use({ "towolf/vim-helm" })
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
