@@ -32,6 +32,8 @@ alias kctx="kubectl config use-context "
 
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+
 function find-pod()
 {
     kubectl get pods --no-headers -o custom-columns=":metadata.name" | grep $1
@@ -39,6 +41,6 @@ function find-pod()
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 
 function jwt-decode() {
-  jq -R 'split(".") |.[0:2] | map(@base64d) | map(fromjson)' <<< $1
+    jq -R 'split(".") |.[0:2] | map(@base64d) | map(fromjson)' <<< $1
 }
 
