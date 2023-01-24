@@ -26,6 +26,7 @@ brew 'protobuf'
 brew 'shellcheck'
 brew 'fd'
 brew 'glow'
+brew 'pure'
 cask 'karabiner-elements'
 
 # Development
