@@ -19,7 +19,10 @@ require("packer").startup(function(use)
 	-- Fuzzy Finder
 	use({
 		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim" } },
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope-live-grep-args.nvim" },
+		},
 		config = function()
 			require("config.telescope")
 		end,
@@ -148,7 +151,7 @@ require("packer").startup(function(use)
 		ft = { "markdown" },
 	})
 
-    use({ "towolf/vim-helm" })
+	use({ "towolf/vim-helm" })
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
