@@ -24,7 +24,7 @@ whichkey.register({
 			"[F]ind [I]n Files",
 		},
 		I = {
-			":lua require('telescope').extensions.live_grep_args.live_grep_args({additional_args = function(opts) return {'--no-ignore'} end})<cr>",
+			":lua require('telescope').extensions.live_grep_args.live_grep_args({vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--no-ignore', '--hidden' }})<cr>",
 			"[F]ind [I]n Files (All)",
 		},
 		b = { "<cmd>Telescope buffers<cr>", "[F]ind [B]uffers" },
