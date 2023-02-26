@@ -31,7 +31,7 @@ local servers = {
 	"jsonls",
 	"jdtls",
 	"tsserver",
-	"sumneko_lua",
+	"lua_ls",
 	"intelephense",
 	"pyright",
 	"tailwindcss",
@@ -179,7 +179,7 @@ lspconfig.gopls.setup({
 	},
 })
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
 	on_attach = function(client, bufnr)
 		require("functions").lsp_on_attach(client, bufnr)
 	end,
