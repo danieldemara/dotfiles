@@ -153,6 +153,8 @@ require("packer").startup(function(use)
 
 	use({ "towolf/vim-helm" })
 
+	use({ "christoomey/vim-tmux-navigator" })
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
