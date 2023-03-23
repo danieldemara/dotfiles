@@ -4,8 +4,8 @@ local M = {}
 -- after the language server attaches to the current buffer
 function M.lsp_on_attach(client, bufnr)
 	-- Disable Built-in LSP formatting in favor of null-ls
-	client.server_capabilities.document_formatting = false
-	client.server_capabilities.document_range_formatting = false
+	client.server_capabilities.documentFormattingProvider = false
+	client.server_capabilities.documentRangeFormattingProvider = false
 
 	-- Add intelligent highlighting
 	require("illuminate").on_attach(client)

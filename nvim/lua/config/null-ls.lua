@@ -14,7 +14,7 @@ end
 
 null_ls.setup({
 	sources = {
-		-- Code Actions
+		-- Git
 		null_ls.builtins.code_actions.gitsigns,
 
 		-- PHP
@@ -43,8 +43,20 @@ null_ls.setup({
 		null_ls.builtins.formatting.black,
 
 		-- JS
+		null_ls.builtins.code_actions.eslint_d.with({
+			condition = function(utils)
+				return utils.root_has_file({ ".eslintrc.js" })
+			end,
+		}),
 		null_ls.builtins.diagnostics.eslint_d.with({
-			disabled_filetypes = { "vue" }, -- Let Volar LSP Take Over
+			condition = function(utils)
+				return utils.root_has_file({ ".eslintrc.js" })
+			end,
+		}),
+		null_ls.builtins.formatting.eslint_d.with({
+			condition = function(utils)
+				return utils.root_has_file({ ".eslintrc.js" })
+			end,
 		}),
 		null_ls.builtins.formatting.prettierd,
 
@@ -59,6 +71,9 @@ null_ls.setup({
 
 		-- Lua
 		null_ls.builtins.formatting.stylua,
+
+		-- JSON
+		null_ls.builtins.formatting.jq,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
