@@ -215,14 +215,6 @@ lspconfig.pyright.setup({
 	flags = lsp_flags,
 })
 
-lspconfig.tsserver.setup({
-	on_attach = function(client, bufnr)
-		require("functions").lsp_on_attach(client, bufnr)
-	end,
-	capabilities = capabilities,
-	flags = lsp_flags,
-})
-
 lspconfig.html.setup({
 	on_attach = function(client, bufnr)
 		require("functions").lsp_on_attach(client, bufnr)
@@ -267,6 +259,7 @@ lspconfig.volar.setup({
 	end,
 	capabilities = capabilities,
 	flags = lsp_flags,
+	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 })
 
 lspconfig.yamlls.setup({
