@@ -27,6 +27,8 @@ brew 'shellcheck'
 brew 'fd'
 brew 'glow'
 brew 'pure'
+brew 'koekeishiya/formulae/yabai'
+brew 'koekeishiya/formulae/skhd'
 cask 'karabiner-elements'
 
 # Development
