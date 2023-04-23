@@ -17,6 +17,10 @@ fi
 rm -rf $HOME/.zshrc
 ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 
+# readline
+rm -rf $HOME/.inputrc
+ln -s $HOME/.dotfiles/.inputrc $HOME/.inputrc
+
 # karabiner
 rm -rf $HOME/.config/karabiner
 ln -s $HOME/.dotfiles/karabiner $HOME/.config/karabiner
