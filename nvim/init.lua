@@ -44,6 +44,8 @@ require("mason-lspconfig").setup({
 	ensure_installed = servers,
 })
 
+require("dap-go").setup()
+
 -- Configure LSP Servers
 local lspconfig = require("lspconfig")
 local lsputil = require("lspconfig.util")

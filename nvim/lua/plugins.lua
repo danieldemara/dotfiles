@@ -138,6 +138,7 @@ require("packer").startup(function(use)
 			require("config.dap")
 		end,
 	})
+	use({ "leoluz/nvim-dap-go" })
 	use({ "theHamsta/nvim-dap-virtual-text" })
 
 	use({ "mfussenegger/nvim-jdtls" })
