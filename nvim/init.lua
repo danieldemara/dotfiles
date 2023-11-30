@@ -46,6 +46,19 @@ require("mason-lspconfig").setup({
 
 require("dap-go").setup()
 
+require("gitlinker").setup()
+
+require("ibl").setup({
+	indent = {
+		char = "┊",
+		-- show_trailing_blankline_indent = false,
+	},
+})
+
+require("ts_context_commentstring").setup({})
+
+vim.g.skip_ts_context_commentstring_module = true
+
 -- Configure LSP Servers
 local lspconfig = require("lspconfig")
 local lsputil = require("lspconfig.util")

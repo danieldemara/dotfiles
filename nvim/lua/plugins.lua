@@ -99,12 +99,6 @@ require("packer").startup(function(use)
 
 	use({
 		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("indent_blankline").setup({
-				char = "┊",
-				show_trailing_blankline_indent = false,
-			})
-		end,
 	})
 
 	use({
@@ -155,6 +149,11 @@ require("packer").startup(function(use)
 	use({ "towolf/vim-helm" })
 
 	use({ "christoomey/vim-tmux-navigator" })
+
+	use({
+		"ruifm/gitlinker.nvim",
+		requires = "nvim-lua/plenary.nvim",
+	})
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
