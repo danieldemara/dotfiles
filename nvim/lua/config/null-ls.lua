@@ -28,12 +28,12 @@ null_ls.setup({
 		-- }),
 
 		-- Python
-		null_ls.builtins.diagnostics.flake8.with({
-			prefer_local = "venv/bin",
-			condition = function(utils)
-				return not utils.root_has_file({ ".pylintrc" })
-			end,
-		}),
+		-- null_ls.builtins.diagnostics.flake8.with({
+		-- 	prefer_local = "venv/bin",
+		-- 	condition = function(utils)
+		-- 		return not utils.root_has_file({ ".pylintrc" })
+		-- 	end,
+		-- }),
 		null_ls.builtins.diagnostics.pylint.with({
 			prefer_local = "venv/bin",
 			condition = function(utils)
@@ -43,21 +43,21 @@ null_ls.setup({
 		null_ls.builtins.formatting.black,
 
 		-- JS
-		null_ls.builtins.code_actions.eslint_d.with({
-			condition = function(utils)
-				return utils.root_has_file({ ".eslintrc.js" })
-			end,
-		}),
-		null_ls.builtins.diagnostics.eslint_d.with({
-			condition = function(utils)
-				return utils.root_has_file({ ".eslintrc.js" })
-			end,
-		}),
-		null_ls.builtins.formatting.eslint_d.with({
-			condition = function(utils)
-				return utils.root_has_file({ ".eslintrc.js" })
-			end,
-		}),
+		-- null_ls.builtins.code_actions.eslint_d.with({
+		-- 	condition = function(utils)
+		-- 		return utils.root_has_file({ ".eslintrc.js" })
+		-- 	end,
+		-- }),
+		-- null_ls.builtins.diagnostics.eslint_d.with({
+		-- 	condition = function(utils)
+		-- 		return utils.root_has_file({ ".eslintrc.js" })
+		-- 	end,
+		-- }),
+		-- null_ls.builtins.formatting.eslint_d.with({
+		-- 	condition = function(utils)
+		-- 		return utils.root_has_file({ ".eslintrc.js" })
+		-- 	end,
+		-- }),
 		null_ls.builtins.formatting.prettierd,
 
 		-- Java
