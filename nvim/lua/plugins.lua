@@ -85,7 +85,7 @@ require("packer").startup(function(use)
 
 	-- Linter
 	use({
-		"jose-elias-alvarez/null-ls.nvim",
+		"nvimtools/none-ls.nvim",
 		requires = {
 			"nvim-lua/plenary.nvim",
 		},
