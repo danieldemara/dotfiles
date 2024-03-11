@@ -37,6 +37,7 @@ local servers = {
 	"tailwindcss",
 	"volar",
 	"yamlls",
+	"terraformls",
 }
 
 require("mason").setup()
@@ -309,6 +310,14 @@ lspconfig.yamlls.setup({
 })
 
 lspconfig.jsonls.setup({
+	on_attach = function(client, bufnr)
+		require("functions").lsp_on_attach(client, bufnr)
+	end,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+
+lspconfig.terraformls.setup({
 	on_attach = function(client, bufnr)
 		require("functions").lsp_on_attach(client, bufnr)
 	end,
