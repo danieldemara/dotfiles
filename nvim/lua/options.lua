@@ -47,6 +47,8 @@ vim.cmd([[
     autocmd FileType php setlocal shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType lua setlocal shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType terraform setlocal shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType hcl setlocal shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType vue setlocal shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab

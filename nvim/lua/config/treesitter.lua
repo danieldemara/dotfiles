@@ -21,6 +21,7 @@ treesitter.setup({
 		"markdown_inline",
 		"make",
 		"terraform",
+		"hcl",
 	},
 	highlight = { enable = true },
 	indent = { enable = true },
