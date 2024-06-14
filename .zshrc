@@ -152,3 +152,5 @@ done
 # Terraform auto complete
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
