@@ -38,6 +38,7 @@ local servers = {
 	"volar",
 	"yamlls",
 	"terraformls",
+	"omnisharp",
 }
 
 require("mason").setup()
@@ -318,6 +319,14 @@ lspconfig.jsonls.setup({
 })
 
 lspconfig.terraformls.setup({
+	on_attach = function(client, bufnr)
+		require("functions").lsp_on_attach(client, bufnr)
+	end,
+	capabilities = capabilities,
+	flags = lsp_flags,
+})
+
+lspconfig.omnisharp.setup({
 	on_attach = function(client, bufnr)
 		require("functions").lsp_on_attach(client, bufnr)
 	end,
