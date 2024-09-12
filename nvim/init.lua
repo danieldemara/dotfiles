@@ -30,7 +30,6 @@ local servers = {
 	"gopls",
 	"jsonls",
 	"jdtls",
-	"tsserver",
 	"lua_ls",
 	"intelephense",
 	"pyright",
@@ -38,6 +37,7 @@ local servers = {
 	"volar",
 	"yamlls",
 	"terraformls",
+	"helm_ls",
 	"omnisharp",
 }
 
@@ -280,36 +280,6 @@ lspconfig.volar.setup({
 	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 })
 
-lspconfig.yamlls.setup({
-	on_attach = function(client, bufnr)
-		require("functions").lsp_on_attach(client, bufnr)
-	end,
-	capabilities = capabilities,
-	flags = lsp_flags,
-	settings = {
-		yaml = {
-			schemaStore = {
-				enable = true,
-				url = "https://www.schemastore.org/api/json/catalog.json",
-			},
-			schemas = {
-				kubernetes = "*.yaml",
-				["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
-				["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-				["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
-				["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
-				["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
-				["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
-				["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
-				["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
-			},
-			format = { enabled = false },
-			completion = true,
-			hover = true,
-		},
-	},
-})
-
 lspconfig.jsonls.setup({
 	on_attach = function(client, bufnr)
 		require("functions").lsp_on_attach(client, bufnr)
@@ -324,6 +294,21 @@ lspconfig.terraformls.setup({
 	end,
 	capabilities = capabilities,
 	flags = lsp_flags,
+})
+
+lspconfig.helm_ls.setup({
+	on_attach = function(client, bufnr)
+		require("functions").lsp_on_attach(client, bufnr)
+	end,
+	capabilities = capabilities,
+	flags = lsp_flags,
+	settings = {
+		["helm-ls"] = {
+			yamlls = {
+				path = "yaml-language-server",
+			},
+		},
+	},
 })
 
 lspconfig.omnisharp.setup({
