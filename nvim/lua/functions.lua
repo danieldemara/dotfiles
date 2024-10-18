@@ -31,35 +31,44 @@ function M.lsp_on_attach(client, bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local wk = require("which-key")
 
-	wk.register({
-		gD = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "[G]o to [D]eclaration" },
-		gd = { "<cmd>lua vim.lsp.buf.definition()<cr>", "[G]o to [D]efinition" },
-		gi = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "[G]o to [I]mplementation" },
-		gr = { "<cmd>lua vim.lsp.buf.references()<cr>", "[G]o to [R]eferences" },
-		gt = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "[G]o to [T]ype Definition" },
-		K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Commands" },
-		["<leader>si"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Documentation" },
-		["<leader>rn"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "[R]e[n]ame" },
-		["<leader>ca"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "[C]ode [A]ction" },
-		-- ["<leader>f"] = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "[F]ormat" },
-		["<leader>ds"] = { "<cmd>Telescope lsp_document_symbols<cr>", "[D]ocument [S]ymbols" },
-		["<leader>ws"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "[W]orkspace [S]ymbols" },
-		["<leader>w"] = {
-			name = "Workspace",
-			a = {
-				"<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>",
-				"[W]orkspace [A]dd Folder",
-			},
-			l = {
-				"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>",
-				"[W]orkspace [L]ist Folders",
-			},
-			r = {
-				"<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>",
-				"[W]orkspace [R]emove Folder",
-			},
-			d = { "<cmd>Telescope diagnostics<cr>", "[W]orkspace [D]iagnostics" },
+	wk.add({
+		{ "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "[C]ode [A]ction", remap = false },
+		{ "<leader>ds", "<cmd>Telescope lsp_document_symbols<cr>", desc = "[D]ocument [S]ymbols", remap = false },
+		{ "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "[R]e[n]ame", remap = false },
+		{ "<leader>si", "<cmd>lua vim.lsp.buf.signature_help()<cr>", desc = "Signature Documentation", remap = false },
+		{ "<leader>w", group = "Workspace", remap = false },
+		{
+			"<leader>wa",
+			"<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>",
+			desc = "[W]orkspace [A]dd Folder",
+			remap = false,
 		},
+		{ "<leader>wd", "<cmd>Telescope diagnostics<cr>", desc = "[W]orkspace [D]iagnostics", remap = false },
+		{
+			"<leader>wl",
+			"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>",
+			desc = "[W]orkspace [L]ist Folders",
+			remap = false,
+		},
+		{
+			"<leader>wr",
+			"<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>",
+			desc = "[W]orkspace [R]emove Folder",
+			remap = false,
+		},
+		{
+			"<leader>ws",
+			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+			desc = "[W]orkspace [S]ymbols",
+			remap = false,
+		},
+		{ "K", "<cmd>lua vim.lsp.buf.hover()<cr>", desc = "Hover Commands", remap = false },
+
+		{ "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", desc = "[G]o to [D]eclaration", remap = false },
+		{ "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "[G]o to [D]efinition", remap = false },
+		{ "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", desc = "[G]o to [I]mplementation", remap = false },
+		{ "gr", "<cmd>lua vim.lsp.buf.references()<cr>", desc = "[G]o to [R]eferences", remap = false },
+		{ "gt", "<cmd>lua vim.lsp.buf.type_definition()<cr>", desc = "[G]o to [T]ype Definition", remap = false },
 	}, { mode = "n", noremap = true, silent = true })
 end
 
