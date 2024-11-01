@@ -45,6 +45,12 @@ ln -s $HOME/.dotfiles/yabai $HOME/.config/yabai
 rm -rf $HOME/.config/skhd
 ln -s $HOME/.dotfiles/skhd $HOME/.config/skhd
 
+# k9s
+rm -rf $HOME/Library/Application\ Support/k9s/skins
+rm -rf $HOME/Library/Application\ Support/k9s/config.yaml
+ln -s $HOME/.dotfiles/k9s/skins $HOME/Library/Application\ Support/k9s/skins
+ln -s $HOME/.dotfiles/k9s/config.yaml $HOME/Library/Application\ Support/k9s/config.yaml
+
 # ideavim
 rm -rf $HOME/.ideavimrc
 ln -s $HOME/.dotfiles/.ideavimrc $HOME/.ideavimrc
