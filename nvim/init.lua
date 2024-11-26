@@ -26,15 +26,12 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Install the following language servers
 local servers = {
 	"bashls",
-	"cssls",
 	"gopls",
 	"jsonls",
 	"jdtls",
 	"lua_ls",
 	"intelephense",
 	"pyright",
-	"tailwindcss",
-	"volar",
 	"yamlls",
 	"terraformls",
 	"helm_ls",
@@ -64,7 +61,6 @@ vim.g.skip_ts_context_commentstring_module = true
 
 -- Configure LSP Servers
 local lspconfig = require("lspconfig")
-local lsputil = require("lspconfig.util")
 
 lspconfig.bashls.setup({
 	on_attach = function(client, bufnr)
@@ -239,45 +235,6 @@ lspconfig.html.setup({
 	end,
 	capabilities = capabilities,
 	flags = lsp_flags,
-})
-
-lspconfig.cssls.setup({
-	on_attach = function(client, bufnr)
-		require("functions").lsp_on_attach(client, bufnr)
-	end,
-	capabilities = capabilities,
-	flags = lsp_flags,
-})
-
-lspconfig.tailwindcss.setup({
-	on_attach = function(client, bufnr)
-		require("functions").lsp_on_attach(client, bufnr)
-	end,
-	capabilities = capabilities,
-	flags = lsp_flags,
-	root_dir = lsputil.root_pattern("tailwind.config.js", "tailwind.config.ts"),
-})
-
-local function get_typescript_lib_path(root_dir)
-	local project_root = lspconfig_util.find_node_modules_ancestor(root_dir)
-	return project_root and (lspconfig_util.path.join(project_root, "node_modules", "typescript", "lib")) or ""
-end
-
-lspconfig.volar.setup({
-	init_options = {
-		typescript = {
-			tsdk = "",
-		},
-	},
-	on_new_config = function(new_config, new_root_dir)
-		new_config.init_options.typescript.tsdk = get_typescript_lib_path(new_root_dir)
-	end,
-	on_attach = function(client, bufnr)
-		require("functions").lsp_on_attach(client, bufnr)
-	end,
-	capabilities = capabilities,
-	flags = lsp_flags,
-	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 })
 
 lspconfig.jsonls.setup({
