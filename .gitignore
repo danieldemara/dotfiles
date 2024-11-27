@@ -1,5 +1,5 @@
 .DS_Store
-aliases_work.zsh
-nvim/plugin
-nvim/java-debug
-nvim/vscode-java-test
+oh-my-zsh/.oh-my-zsh/custom/aliases_work.zsh
+nvim/.config/nvim/plugin
+nvim/.config/nvim/java-debug
+nvim/.config/nvim/vscode-java-test

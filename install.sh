@@ -13,46 +13,23 @@ if test ! $(which brew); then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# zsh
-rm -rf $HOME/.zshrc
-ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
-
-# readline
-rm -rf $HOME/.inputrc
-ln -s $HOME/.dotfiles/.inputrc $HOME/.inputrc
-
-# karabiner
-rm -rf $HOME/.config/karabiner
-ln -s $HOME/.dotfiles/karabiner $HOME/.config/karabiner
-
-# alacritty
-rm -rf $HOME/.config/alacritty
-ln -s $HOME/.dotfiles/alacritty $HOME/.config/alacritty
-
-# nvim
-rm -rf $HOME/.config/nvim
-ln -s $HOME/.dotfiles/nvim $HOME/.config/nvim
-
-# tmux
-rm -rf $HOME/.tmux.conf
-ln -s $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
-
-# k9s
-rm -rf $HOME/Library/Application\ Support/k9s/skins
-rm -rf $HOME/Library/Application\ Support/k9s/config.yaml
-ln -s $HOME/.dotfiles/k9s/skins $HOME/Library/Application\ Support/k9s/skins
-ln -s $HOME/.dotfiles/k9s/config.yaml $HOME/Library/Application\ Support/k9s/config.yaml
-
-# ideavim
-rm -rf $HOME/.ideavimrc
-ln -s $HOME/.dotfiles/.ideavimrc $HOME/.ideavimrc
-
 # Update Homebrew recipes
 brew update
 
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
-brew bundle --file $DOTFILES/Brewfile
+brew bundle --file Brewfile
+
+# Install dotfile packages
+stow alacritty
+stow zshrc
+stow oh-my-zsh
+stow tmux
+stow karabiner
+stow nvim
+stow readline
+stow ideavim
+stow k9s
 
 # Install global npm packages
 npm install -g eslint_d @fsouza/prettierd
