@@ -9,6 +9,7 @@ tap "hashicorp/tap"
 tap "ngrok/ngrok"
 
 # Binaries
+brew "stow"
 brew "coreutils"
 brew "pkg-config"
 brew "bash"

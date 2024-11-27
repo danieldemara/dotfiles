@@ -37,14 +37,6 @@ ln -s $HOME/.dotfiles/nvim $HOME/.config/nvim
 rm -rf $HOME/.tmux.conf
 ln -s $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 
-# yabai
-rm -rf $HOME/.config/yabai
-ln -s $HOME/.dotfiles/yabai $HOME/.config/yabai
-
-# skhd
-rm -rf $HOME/.config/skhd
-ln -s $HOME/.dotfiles/skhd $HOME/.config/skhd
-
 # k9s
 rm -rf $HOME/Library/Application\ Support/k9s/skins
 rm -rf $HOME/Library/Application\ Support/k9s/config.yaml
