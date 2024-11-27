@@ -36,19 +36,11 @@ brew "argocd"
 brew "protobuf"
 brew "shellcheck"
 brew "stylua"
-brew "google-java-format"
 brew "redis"
 brew "postgresql"
 
 # Language + Tooling
 cask "dotnet-sdk"
-brew "openjdk"
-brew "golang"
-brew "python"
-brew "php"
-brew "composer"
-brew "node"
-brew "yarn"
 
 # Apps
 cask '1password'
@@ -62,4 +54,3 @@ cask "ngrok"
 
 # Fonts
 cask "font-fira-code-nerd-font"
-

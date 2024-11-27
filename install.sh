@@ -31,18 +31,13 @@ stow readline
 stow ideavim
 stow k9s
 
-# Install global npm packages
-npm install -g eslint_d @fsouza/prettierd
-
-# Install PHP Extensions
-pecl install xdebug
-pecl install redis
-
-# Install global composer packages
-/usr/local/bin/composer global require "squizlabs/php_codesniffer=*"
-
-# Install global python packages
-pip3 install black flake8 pylint
+# Install all global tools asdf manages
+asdf plugin add kubectl
+asdf plugin add golang
+asdf plugin add java
+asdf plugin add python
+asdf plugin add nodejs
+asdf install
 
 # Install tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
