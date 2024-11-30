@@ -3,3 +3,4 @@ oh-my-zsh/.oh-my-zsh/custom/aliases_work.zsh
 nvim/.config/nvim/plugin
 nvim/.config/nvim/java-debug
 nvim/.config/nvim/vscode-java-test
+nvim/.config/nvim/lazy-lock.json

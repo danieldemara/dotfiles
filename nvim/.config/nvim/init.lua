@@ -3,15 +3,11 @@ require("plugins")
 require("keymap")
 require("autocmds")
 
-vim.api.nvim_command([[colorscheme tokyonight]])
-
 -- Tree Config
 require("nvim-tree").setup()
 
 -- GitSigns
 require("gitsigns").setup()
-
-local lspconfig_util = require("lspconfig.util")
 
 -- LSP Config
 local lsp_flags = {
