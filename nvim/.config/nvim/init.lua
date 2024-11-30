@@ -1,13 +1,7 @@
 require("options")
-require("plugins")
 require("keymap")
+require("config.lazy")
 require("autocmds")
-
--- Tree Config
-require("nvim-tree").setup()
-
--- GitSigns
-require("gitsigns").setup()
 
 -- LSP Config
 local lsp_flags = {
@@ -37,18 +31,6 @@ local servers = {
 require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
-})
-
-require("dap-go").setup()
-
-require("gitlinker").setup()
-
-require("ibl").setup({
-	indent = {
-		char = "┊",
-		-- show_trailing_blankline_indent = false,
-	},
-	scope = { enabled = false },
 })
 
 require("ts_context_commentstring").setup({})
