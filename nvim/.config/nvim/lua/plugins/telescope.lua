@@ -13,7 +13,7 @@ return {
 		},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 		{ "nvim-telescope/telescope-live-grep-args.nvim" },
-		{ "kyazdani42/nvim-web-devicons" },
+		{ "nvim-tree/nvim-web-devicons" },
 	},
 	config = function()
 		local lga_actions = require("telescope-live-grep-args.actions")
@@ -42,5 +42,35 @@ return {
 
 		pcall(require("telescope").load_extension, "fzf")
 		pcall(require("telescope").load_extension, "live_grep_args")
+
+		-- See `:help telescope.builtin`
+		local builtin = require("telescope.builtin")
+		local extensions = require("telescope").extensions
+		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
+		vim.keymap.set("n", "<leader>fF", function()
+			builtin.find_files({ no_ignore = true })
+		end, { desc = "[F]ind [F]ile (All)" })
+		vim.keymap.set("n", "<leader>fi", extensions.live_grep_args.live_grep_args, { desc = "[F]ind [I]n Files" })
+		vim.keymap.set("n", "<leader>fI", function()
+			extensions.live_grep_args.live_grep_args({
+				vimgrep_arguments = {
+					"rg",
+					"--color=never",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--smart-case",
+					"--no-ignore",
+					"--hidden",
+				},
+			})
+		end, { desc = "[F]ind [I]n Files (All)" })
+		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "[F]ind [B]uffers" })
+		vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "[F]ind [R]ecent Files" })
+		vim.keymap.set("n", "<leader>fc", builtin.resume, { desc = "[F]ind [C]ontinue" })
+		vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "[F]ind [W]ord" })
+		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[F]ind [D]iagnostics" })
+		vim.keymap.set("n", "<leader>fn", "<cmd>vnew<cr>", { desc = "[F]ile [N]ew" })
 	end,
 }

@@ -4,11 +4,6 @@ return {
 		local whichkey = require("which-key")
 		whichkey.setup({})
 
-		-- Insert Mode Bindings
-		-- whichkey.add({
-		-- 	{ "jk", ""<Esc>", desc = "Exit Insert Mode" },
-		-- }, { mode = "i" })
-
 		-- Normal Mode Bindings
 		whichkey.add({
 			{ "<leader>d", group = "Debugging" },
@@ -30,36 +25,8 @@ return {
 			{ "<leader>e", "<cmd>lua vim.diagnostic.open_float()<cr>", desc = "" },
 
 			{ "<leader>f", group = "File Management" },
-			{ "<leader>fF", "<cmd>Telescope find_files no_ignore=true<cr>", desc = "[F]ind [F]ile (All)" },
-			{
-				"<leader>fI",
-				":lua require('telescope').extensions.live_grep_args.live_grep_args({vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--no-ignore', '--hidden' }})<cr>",
-				desc = "[F]ind [I]n Files (All)",
-			},
-			{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "[F]ind [B]uffers" },
-			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "[F]ind [F]ile" },
-			{
-				"<leader>fi",
-				":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
-				desc = "[F]ind [I]n Files",
-			},
-			{ "<leader>fn", "<cmd>vnew<cr>", desc = "[F]ile [N]ew" },
-			{ "<leader>fp", "<cmd>Telescope projects<cr>", desc = "[F]ind [P]rojects" },
-			{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "[F]ind [R]ecent Files" },
-			{ "<leader>ft", "<cmd>NvimTreeFindFileToggle<cr>", desc = "Toggle [F]ile [T]ree" },
-
 			{ "<leader>g", group = "Git" },
-			{ "<leader>gR", "<cmd>lua require('gitsigns').reset_buffer()<cr>", desc = "[G]it [R]eset Buffer" },
-			{ "<leader>gS", "<cmd>lua require('gitsigns').stage_buffer()<cr>", desc = "[G]it [S]tage Buffer" },
-			{ "<leader>gb", "<cmd>lua require('gitsigns').blame_line()<cr>", desc = "[G]it [B]lame" },
-			{ "<leader>gd", "<cmd>lua require('gitsigns').diffthis()<cr>", desc = "[G]it [D]iff" },
-			{ "<leader>gp", "<cmd>lua require('gitsigns').preview_hunk()<cr>", desc = "[G]it [P]review Hunk" },
-			{ "<leader>gr", "<cmd>lua require('gitsigns').reset_hunk()<cr>", desc = "[G]it [R]eset Hunk" },
-			{ "<leader>gs", "<cmd>lua require('gitsigns').stage_hunk()<cr>", desc = "[G]it [S]tage Hunk" },
-			{ "<leader>gu", "<cmd>lua require('gitsigns').undo_stage_hunk()<cr>", desc = "[G]it [U]ndo Stage Hunk" },
-
 			{ "<leader>m", group = "Markdown" },
-			{ "<leader>mp", "<cmd>MarkdownPreviewToggle<cr>", desc = "[M]arkdown [P]review" },
 
 			{ "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "" },
 			{ "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "Go to previous any" },

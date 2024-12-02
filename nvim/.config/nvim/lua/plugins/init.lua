@@ -11,10 +11,20 @@ return {
 	},
 
 	-- File Tree
-	{ "kyazdani42/nvim-tree.lua", opts = {} },
-
-	-- Git Gutter
-	{ "lewis6991/gitsigns.nvim",  opts = {} },
+	{
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		lazy = false,
+		keys = {
+			{ "<leader>ft", "<cmd>NvimTreeToggle<cr>", desc = "[F]ile [T]ree Toggle", silent = true },
+		},
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("nvim-tree").setup({})
+		end,
+	},
 
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -32,24 +42,37 @@ return {
 
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
+		ft = "typescript",
 		init = function()
 			vim.g.skip_ts_context_commentstring_module = true
 		end,
 	},
-	{ "windwp/nvim-ts-autotag" },
+	{
+		"windwp/nvim-ts-autotag",
+		ft = "typescript",
+	},
 
-	{ "mfussenegger/nvim-jdtls" },
+	{
+		"mfussenegger/nvim-jdtls",
+		ft = "java",
+	},
 
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
+		keys = {
+			{ "<leader>mp", "<cmd>MarkdownPreviewToggle<cr>", desc = "[M]arkdown [P]review" },
+		},
 		build = function()
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
 
-	{ "towolf/vim-helm" },
+	{
+		"towolf/vim-helm",
+		ft = "helm",
+	},
 
 	{ "christoomey/vim-tmux-navigator" },
 
