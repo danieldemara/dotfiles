@@ -36,6 +36,7 @@ vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.fillchars.eob = " "
 vim.opt.shortmess:append("c")
+vim.opt.shortmess:append("I")
 --vim.opt.whichwrap:append("<,>,[,],h,l")
 --vim.opt.iskeyword:append("-")
 vim.wo.colorcolumn = "120"
