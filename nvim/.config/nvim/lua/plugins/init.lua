@@ -83,17 +83,21 @@ return {
 	},
 
 	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
+		"zbirenbaum/copilot-cmp",
 		event = "InsertEnter",
+		config = function()
+			require("copilot_cmp").setup()
+		end,
 		dependencies = {
-			"zbirenbaum/copilot-cmp",
-		},
-		opts = {
-			suggestion = { enabled = false },
-			panel = { enabled = false },
+			"zbirenbaum/copilot.lua",
+			cmd = "Copilot",
+			config = function()
+				require("copilot").setup({
+					suggestion = { enabled = false },
+					panel = { enabled = false },
+				})
+			end,
 		},
 	},
-
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 }
