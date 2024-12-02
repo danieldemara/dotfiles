@@ -23,3 +23,7 @@ keymap("i", "<Up>", "<Nop>", opts)
 keymap("i", "<Down>", "<Nop>", opts)
 keymap("i", "<Left>", "<Nop>", opts)
 keymap("i", "<Right>", "<Nop>", opts)
+
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
