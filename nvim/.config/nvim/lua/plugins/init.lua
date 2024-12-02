@@ -10,23 +10,18 @@ return {
 		end,
 	},
 
-	-- Language Server Configs
-	{ "neovim/nvim-lspconfig" },
-	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
-
-	-- Highlight Current Word
-	{ "RRethy/vim-illuminate" },
-
 	-- File Tree
 	{ "kyazdani42/nvim-tree.lua", opts = {} },
 
 	-- Git Gutter
-	{ "lewis6991/gitsigns.nvim", opts = {} },
+	{ "lewis6991/gitsigns.nvim",  opts = {} },
 
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		ops = {
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {
 			indent = {
 				char = "┊",
 				-- show_trailing_blankline_indent = false,
