@@ -6,7 +6,79 @@ return {
 		"leoluz/nvim-dap-go",
 		"theHamsta/nvim-dap-virtual-text",
 	},
-
+	keys = {
+		{
+			"<leader>dd",
+			function()
+				require("dap").continue()
+			end,
+			desc = "[D]ebug Start/Continue",
+		},
+		{
+			"<leader>di",
+			function()
+				require("dap").step_into()
+			end,
+			desc = "[D]ebug Step [I]nto",
+		},
+		{
+			"<leader>do",
+			function()
+				require("dap").step_over()
+			end,
+			desc = "[D]ebug Step [O]ver",
+		},
+		{
+			"<leader>dO",
+			function()
+				require("dap").step_out()
+			end,
+			desc = "[D]ebug Step [O]ut",
+		},
+		{
+			"<leader>db",
+			function()
+				require("dap").toggle_breakpoint()
+			end,
+			desc = "[D]ebug [B]reakpoint",
+		},
+		{
+			"<leader>dB",
+			function()
+				require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+			end,
+			desc = "[D]ebug Conditional [B]reakpoint",
+		},
+		{
+			"<leader>dl",
+			function()
+				require("dap").run_last()
+			end,
+			desc = "[D]ebug [R]un",
+		},
+		{
+			"<leader>dt",
+			function()
+				require("dap").terminate()
+			end,
+			desc = "[D]ebug [T]erminate",
+		},
+		{
+			"<leader>dr",
+			function()
+				require("dap").repl_toggle()
+			end,
+			desc = "[D]ebug [R]EPL",
+		},
+		-- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+		{
+			"<leader>du",
+			function()
+				require("dapui").toggle()
+			end,
+			desc = "[D]ebug [U]I",
+		},
+	},
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")

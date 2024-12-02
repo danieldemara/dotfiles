@@ -133,14 +133,9 @@ return {
 					end, "[T]oggle Inlay [H]ints")
 				end
 
-				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_hover) then
-					-- Display LSP Hover hints
-					map("K", vim.lsp.buf.hover, "Display Hints")
-				end
-
 				-- TODO: Remove, old: Disable Built-in LSP formatting in favor of null-ls
-				-- client.server_capabilities.documentFormattingProvider = false
-				-- client.server_capabilities.documentRangeFormattingProvider = false
+				client.server_capabilities.documentFormattingProvider = false
+				client.server_capabilities.documentRangeFormattingProvider = false
 			end,
 		})
 
