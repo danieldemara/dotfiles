@@ -94,9 +94,6 @@ return {
 				--  For example, in C this would take you to the header.
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-				-- Display LSP Hover hints
-				map("K", vim.lsp.buf.hover(), "Display Hints")
-
 				-- The following two autocommands are used to highlight references of the
 				-- word under your cursor when your cursor rests there for a little while.
 				--    See `:help CursorHold` for information about when this is executed
@@ -135,6 +132,15 @@ return {
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 					end, "[T]oggle Inlay [H]ints")
 				end
+
+				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_hover) then
+					-- Display LSP Hover hints
+					map("K", vim.lsp.buf.hover, "Display Hints")
+				end
+
+				-- TODO: Remove, old: Disable Built-in LSP formatting in favor of null-ls
+				client.server_capabilities.documentFormattingProvider = false
+				client.server_capabilities.documentRangeFormattingProvider = false
 			end,
 		})
 

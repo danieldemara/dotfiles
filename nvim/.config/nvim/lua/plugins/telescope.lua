@@ -3,6 +3,7 @@ return {
 	event = "VimEnter",
 	branch = "0.1.x",
 	dependencies = {
+		{ "nvim-lua/plenary.nvim" },
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
@@ -10,15 +11,14 @@ return {
 				return vim.fn.executable("make") == 1
 			end,
 		},
-		{ "nvim-lua/plenary.nvim" },
+		{ "nvim-telescope/telescope-ui-select.nvim" },
 		{ "nvim-telescope/telescope-live-grep-args.nvim" },
 		{ "kyazdani42/nvim-web-devicons" },
 	},
 	config = function()
-		local telescope = require("telescope")
 		local lga_actions = require("telescope-live-grep-args.actions")
 
-		telescope.setup({
+		require("telescope").setup({
 			defaults = { file_ignore_patterns = { ".git/", "node_modules", ".DS_Store" } },
 			pickers = {
 				find_files = {
@@ -33,6 +33,9 @@ return {
 							["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
 						},
 					},
+				},
+				["ui-select"] = {
+					require("telescope.themes").get_dropdown(),
 				},
 			},
 		})
