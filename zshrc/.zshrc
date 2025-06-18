@@ -18,6 +18,9 @@ export PATH=$PATH:$GOROOT/bin
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
+# ASDF Package Manager
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
 # Load Node global installed binaries
 # export PATH="$HOME/.node/bin:$PATH"
 
@@ -152,5 +155,3 @@ done
 # Terraform auto complete
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
