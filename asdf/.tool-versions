@@ -1,4 +1,6 @@
 kubectl 1.31.3
+terraform 1.12.2
+terragrunt 0.82.3
 golang 1.23.3
 python 3.13.0t
 nodejs 23.3.0

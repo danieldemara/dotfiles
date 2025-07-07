@@ -37,6 +37,9 @@ asdf plugin add golang
 asdf plugin add java
 asdf plugin add python
 asdf plugin add nodejs
+asdf plugin add dotnet
+asdf plugin add terraform
+asdf plugin add terragrunt
 asdf install
 
 # Install tmux plugin manager
